@@ -90,9 +90,4 @@
         End If
     End Sub
 
-    Private Function fetchKitchenLayouts(inDimensRange() As Object) As String
-        For Each name As String In inDimensRange
-            Return name
-        Next
-    End Function
 End Class
