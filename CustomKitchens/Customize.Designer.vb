@@ -29,11 +29,18 @@ Partial Class Customize
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtLength = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.grpKitchenLayouts = New System.Windows.Forms.GroupBox()
+        Me.cboPriceRange = New System.Windows.Forms.ComboBox()
+        Me.lvKitchenLayouts = New System.Windows.Forms.ListView()
+        Me.chId = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chTitle = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chLength = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chWidth = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chLaminatePrice = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chWoodblock = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chGranitePrice = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
+        Me.grpKitchenLayouts.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblWelcome
@@ -113,47 +120,86 @@ Partial Class Customize
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Enter Length :"
         '
-        'GroupBox2
+        'grpKitchenLayouts
         '
-        Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.TextBox1)
-        Me.GroupBox2.Location = New System.Drawing.Point(277, 187)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(238, 111)
-        Me.GroupBox2.TabIndex = 3
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Price"
+        Me.grpKitchenLayouts.Controls.Add(Me.lvKitchenLayouts)
+        Me.grpKitchenLayouts.Controls.Add(Me.cboPriceRange)
+        Me.grpKitchenLayouts.Enabled = False
+        Me.grpKitchenLayouts.Location = New System.Drawing.Point(12, 186)
+        Me.grpKitchenLayouts.Name = "grpKitchenLayouts"
+        Me.grpKitchenLayouts.Size = New System.Drawing.Size(795, 210)
+        Me.grpKitchenLayouts.TabIndex = 3
+        Me.grpKitchenLayouts.TabStop = False
+        Me.grpKitchenLayouts.Text = "Available Kitchen Layouts"
         '
-        'Label3
+        'cboPriceRange
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(8, 16)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(59, 13)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Enter Price"
+        Me.cboPriceRange.FormattingEnabled = True
+        Me.cboPriceRange.Items.AddRange(New Object() {"All", "Below 5,000", "5,001 - 7,000", "7,001 - 9,000", "Above 9,000 "})
+        Me.cboPriceRange.Location = New System.Drawing.Point(667, 14)
+        Me.cboPriceRange.Name = "cboPriceRange"
+        Me.cboPriceRange.Size = New System.Drawing.Size(121, 21)
+        Me.cboPriceRange.TabIndex = 1
+        Me.cboPriceRange.Text = "Price range"
         '
-        'TextBox1
+        'lvKitchenLayouts
         '
-        Me.TextBox1.Location = New System.Drawing.Point(6, 47)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(228, 20)
-        Me.TextBox1.TabIndex = 0
+        Me.lvKitchenLayouts.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chId, Me.chTitle, Me.chLength, Me.chWidth, Me.chLaminatePrice, Me.chWoodblock, Me.chGranitePrice})
+        Me.lvKitchenLayouts.HideSelection = False
+        Me.lvKitchenLayouts.Location = New System.Drawing.Point(7, 41)
+        Me.lvKitchenLayouts.Name = "lvKitchenLayouts"
+        Me.lvKitchenLayouts.Size = New System.Drawing.Size(781, 163)
+        Me.lvKitchenLayouts.TabIndex = 2
+        Me.lvKitchenLayouts.UseCompatibleStateImageBehavior = False
+        Me.lvKitchenLayouts.View = System.Windows.Forms.View.Details
+        '
+        'chId
+        '
+        Me.chId.Text = "ID"
+        '
+        'chTitle
+        '
+        Me.chTitle.Text = "Title"
+        Me.chTitle.Width = 158
+        '
+        'chLength
+        '
+        Me.chLength.Text = "Length"
+        Me.chLength.Width = 62
+        '
+        'chWidth
+        '
+        Me.chWidth.Text = "Width"
+        '
+        'chLaminatePrice
+        '
+        Me.chLaminatePrice.Text = "Laminate Countertop Price"
+        Me.chLaminatePrice.Width = 145
+        '
+        'chWoodblock
+        '
+        Me.chWoodblock.Text = "Woodblock Countertop Price"
+        Me.chWoodblock.Width = 153
+        '
+        'chGranitePrice
+        '
+        Me.chGranitePrice.Text = "Granite Countertop Price"
+        Me.chGranitePrice.Width = 128
         '
         'Customize
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(819, 381)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.AutoScroll = True
+        Me.ClientSize = New System.Drawing.Size(819, 408)
+        Me.Controls.Add(Me.grpKitchenLayouts)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblWelcome)
         Me.Name = "Customize"
         Me.Text = "Personalize your Kitchen"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.grpKitchenLayouts.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -166,7 +212,14 @@ Partial Class Customize
     Friend WithEvents Label2 As Label
     Friend WithEvents txtLength As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label3 As Label
+    Friend WithEvents grpKitchenLayouts As GroupBox
+    Friend WithEvents cboPriceRange As ComboBox
+    Friend WithEvents lvKitchenLayouts As ListView
+    Friend WithEvents chId As ColumnHeader
+    Friend WithEvents chTitle As ColumnHeader
+    Friend WithEvents chLength As ColumnHeader
+    Friend WithEvents chWidth As ColumnHeader
+    Friend WithEvents chLaminatePrice As ColumnHeader
+    Friend WithEvents chWoodblock As ColumnHeader
+    Friend WithEvents chGranitePrice As ColumnHeader
 End Class
