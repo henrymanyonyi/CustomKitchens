@@ -79,6 +79,13 @@
     <Compile Include="Account.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="OrderItems.Designer.vb">
+      <DependentUpon>OrderItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OrderItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataClass.vb" />
     <Compile Include="Welcome.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +119,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Account.resx">
       <DependentUpon>Account.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderItems.resx">
+      <DependentUpon>OrderItems.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome.resx">
       <DependentUpon>Welcome.vb</DependentUpon>

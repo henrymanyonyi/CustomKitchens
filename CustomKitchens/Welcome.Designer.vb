@@ -53,7 +53,7 @@ Partial Class Welcome
         Me.btnGetStarted.Text = "Get Started"
         Me.btnGetStarted.UseVisualStyleBackColor = False
         '
-        'Form1
+        'Welcome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -62,8 +62,10 @@ Partial Class Welcome
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.btnGetStarted)
         Me.Controls.Add(Me.lblWelcome)
+        Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.Color.Black
-        Me.Name = "Form1"
+        Me.Name = "Welcome"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Welcome To CustomKitchens"
         Me.ResumeLayout(False)
         Me.PerformLayout()

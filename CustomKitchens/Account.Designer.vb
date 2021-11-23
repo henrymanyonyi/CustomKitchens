@@ -131,7 +131,8 @@ Partial Class Account
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblWelcome)
-        Me.name = "Account"
+        Me.Name = "Account"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Create Account"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

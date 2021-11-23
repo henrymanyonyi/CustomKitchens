@@ -1,8 +1,6 @@
 ﻿Imports System.Text.RegularExpressions
 
 Public Class Account
-
-    Public name, email, phone As String
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
         If txtUserName.Text.Trim().Length = 0 And txtUserEmail.Text.Trim().Length = 0 Or txtUserPhone.Text.Trim().Length = 0 Then
@@ -19,9 +17,7 @@ Public Class Account
         ElseIf Not Regex.IsMatch(txtUserPhone.Text.Trim(), "^([0]+\d{9})$") Then
             MessageBox.Show("Invalid Phone Number" + vbCr + "Your phone should be in the format : 0712345678")
         Else
-            name = txtUserName.Text.Trim
-            email = txtUserEmail.Text.Trim
-            phone = txtUserPhone.Text.Trim
+            DataClass.userInfo = (txtUserName.Text.Trim, txtUserEmail.Text.Trim, txtUserPhone.Text.Trim)
 
             Customize.Show()
 
