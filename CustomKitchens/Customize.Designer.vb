@@ -203,7 +203,7 @@ Partial Class Customize
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(819, 408)
+        Me.ClientSize = New System.Drawing.Size(819, 429)
         Me.Controls.Add(Me.grpKitchenLayouts)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblWelcome)

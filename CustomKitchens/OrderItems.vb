@@ -4,8 +4,8 @@
 
     Private Sub rdbYesInstallation_CheckedChanged(sender As Object, e As EventArgs) Handles rdbYesInstallation.CheckedChanged
         If rdbYesInstallation.Checked Then
-            amenitiesPrice += installationPrice - shippingPrice
-            fullPrice += installationPrice - shippingPrice
+            amenitiesPrice = amenitiesPrice + installationPrice - shippingPrice
+            fullPrice = fullPrice + installationPrice - shippingPrice
             lblTotalPrice.Text = fullPrice.ToString()
             lblAmenitiesShipping.Text = amenitiesPrice.ToString()
         End If
@@ -14,8 +14,8 @@
 
     Private Sub rdbNoInstallation_CheckedChanged(sender As Object, e As EventArgs) Handles rdbNoInstallation.CheckedChanged
         If rdbNoInstallation.Checked Then
-            amenitiesPrice -= installationPrice + shippingPrice
-            fullPrice -= installationPrice + shippingPrice
+            amenitiesPrice = amenitiesPrice - installationPrice + shippingPrice
+            fullPrice = fullPrice - installationPrice + shippingPrice
             lblTotalPrice.Text = fullPrice.ToString()
             lblAmenitiesShipping.Text = amenitiesPrice.ToString()
         End If
@@ -146,12 +146,17 @@
     End Sub
 
     Private Sub btnConfirmOrder_Click(sender As Object, e As EventArgs) Handles btnConfirmOrder.Click
-        If Not rdbLaminate.Checked Or Not rdbWoodBlock.Checked Or Not rdbGranite.Checked Then
-            MessageBox.Show("Please input Counter preference")
-        ElseIf Not rdbYesInstallation.Checked Or Not rdbNoInstallation.Checked Then
+        If Not rdbLaminate.Checked Or rdbWoodBlock.Checked Or rdbGranite.Checked Then
+            MessageBox.Show("Please input Countertop preference")
+        ElseIf Not rdbYesInstallation.Checked Or rdbNoInstallation.Checked Then
             MessageBox.Show("Please specify if you wish to have installation service")
         Else
             'Code to Print to .txt file : User Details, Kitchen Layout style, kitchen countertop, 
+            Dim file As IO.StreamWriter
+
+            file = My.Computer.FileSystem.OpenTextFileWriter("C:\Users\Dan Mwangi\source\repos\CustomKitchens\CustomKitchens\obj\Debug\KitchenReceipt.txt", True)
+            file.WriteLine("--------------------------------" & vbCr & vbCr & "Customer Name : " & DataClass.userInfo.Item1 & vbCr & "Cost of purchase : " & fullPrice.ToString() & vbCr & vbCr & "--------------------------------")
+            file.Close()
         End If
     End Sub
 
