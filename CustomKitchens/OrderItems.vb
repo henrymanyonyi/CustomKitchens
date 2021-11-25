@@ -157,6 +157,8 @@
             file = My.Computer.FileSystem.OpenTextFileWriter("C:\Users\Dan Mwangi\source\repos\CustomKitchens\CustomKitchens\obj\Debug\KitchenReceipt.txt", True)
             file.WriteLine("--------------------------------" & vbCr & vbCr & "Customer Name : " & DataClass.userInfo.Item1 & vbCr & "Cost of purchase : " & fullPrice.ToString() & vbCr & vbCr & "--------------------------------")
             file.Close()
+
+            MessageBox.Show("Success! We have placed your Order.")
         End If
     End Sub
 

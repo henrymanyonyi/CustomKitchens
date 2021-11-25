@@ -22,7 +22,7 @@ Partial Class Account
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.lblWelcome = New System.Windows.Forms.Label()
+        Me.lblAccount = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnLogin = New System.Windows.Forms.Button()
         Me.txtUserPhone = New System.Windows.Forms.TextBox()
@@ -34,20 +34,20 @@ Partial Class Account
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'lblWelcome
+        'lblAccount
         '
-        Me.lblWelcome.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.lblAccount.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblWelcome.AutoSize = True
-        Me.lblWelcome.BackColor = System.Drawing.Color.Transparent
-        Me.lblWelcome.Font = New System.Drawing.Font("Monotype Corsiva", 19.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
-        Me.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblWelcome.Location = New System.Drawing.Point(264, 20)
-        Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(220, 31)
-        Me.lblWelcome.TabIndex = 2
-        Me.lblWelcome.Text = "Create your Account"
-        Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblAccount.AutoSize = True
+        Me.lblAccount.BackColor = System.Drawing.Color.Transparent
+        Me.lblAccount.Font = New System.Drawing.Font("Monotype Corsiva", 19.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.lblAccount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblAccount.Location = New System.Drawing.Point(264, 20)
+        Me.lblAccount.Name = "lblAccount"
+        Me.lblAccount.Size = New System.Drawing.Size(220, 31)
+        Me.lblAccount.TabIndex = 2
+        Me.lblAccount.Text = "Create your Account"
+        Me.lblAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'GroupBox1
         '
@@ -130,7 +130,7 @@ Partial Class Account
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.lblWelcome)
+        Me.Controls.Add(Me.lblAccount)
         Me.Name = "Account"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Create Account"
@@ -141,7 +141,7 @@ Partial Class Account
 
     End Sub
 
-    Friend WithEvents lblWelcome As Label
+    Friend WithEvents lblAccount As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents txtUserPhone As TextBox
     Friend WithEvents Label3 As Label
