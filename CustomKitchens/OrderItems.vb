@@ -1,8 +1,10 @@
 ﻿Public Class OrderItems
 
     Dim laminatePrice, woodblockPrice, granitePrice, basicFridgePrice, americanFridgePrice, hobPrice, singleOvenPrice, doubleOvenPrice, dishwasherPrice, installationPrice, shippingPrice, amenitiesPrice, fullPrice As Integer
+    Dim houseNo, streetName, town_city, postCode, creditCard As String
 
     Private Sub rdbYesInstallation_CheckedChanged(sender As Object, e As EventArgs) Handles rdbYesInstallation.CheckedChanged
+        'This updates the Prices and refreshes the Form upon clicking the Radio Button for YES Installation
         If rdbYesInstallation.Checked Then
             amenitiesPrice = amenitiesPrice + installationPrice - shippingPrice
             fullPrice = fullPrice + installationPrice - shippingPrice
@@ -13,6 +15,7 @@
     End Sub
 
     Private Sub rdbNoInstallation_CheckedChanged(sender As Object, e As EventArgs) Handles rdbNoInstallation.CheckedChanged
+        'This updates the Prices and refreshes the Form upon clicking the Radio Button for NO Installation
         If rdbNoInstallation.Checked Then
             amenitiesPrice = amenitiesPrice - installationPrice + shippingPrice
             fullPrice = fullPrice - installationPrice + shippingPrice
@@ -23,6 +26,7 @@
     End Sub
 
     Private Sub chkDishwasher_CheckedChanged(sender As Object, e As EventArgs) Handles chkDishwasher.CheckedChanged
+        'This updates the Prices and refreshes the Form upon clicking the CheckBox DishWasher
         If chkDishwasher.Checked Then
             amenitiesPrice += dishwasherPrice
             fullPrice += dishwasherPrice
@@ -38,6 +42,7 @@
     End Sub
 
     Private Sub chkDoubleOven_CheckedChanged(sender As Object, e As EventArgs) Handles chkDoubleOven.CheckedChanged
+        'This updates the Prices and refreshes the Form upon clicking the CheckBox Double Oven
         If chkDoubleOven.Checked Then
             amenitiesPrice += doubleOvenPrice
             fullPrice += doubleOvenPrice
@@ -53,6 +58,7 @@
     End Sub
 
     Private Sub chkSingleOven_CheckedChanged(sender As Object, e As EventArgs) Handles chkSingleOven.CheckedChanged
+        'This updates the Prices and refreshes the Form upon clicking the CheckBox Single Oven
         If chkSingleOven.Checked Then
             amenitiesPrice += singleOvenPrice
             fullPrice += singleOvenPrice
@@ -68,6 +74,7 @@
     End Sub
 
     Private Sub chkHob_CheckedChanged(sender As Object, e As EventArgs) Handles chkHob.CheckedChanged
+        'This updates the Prices and refreshes the Form upon clicking the CheckBox HOB
         If chkHob.Checked Then
             amenitiesPrice += hobPrice
             fullPrice += hobPrice
@@ -83,6 +90,7 @@
     End Sub
 
     Private Sub chkAmericanFridge_CheckedChanged(sender As Object, e As EventArgs) Handles chkAmericanFridge.CheckedChanged
+        'This updates the Prices and refreshes the Form upon clicking the CheckBox American Fridge
         If chkAmericanFridge.Checked Then
             amenitiesPrice += americanFridgePrice
             fullPrice += americanFridgePrice
@@ -98,6 +106,7 @@
     End Sub
 
     Private Sub chkBasicFridge_CheckedChanged(sender As Object, e As EventArgs) Handles chkBasicFridge.CheckedChanged
+        'This updates the Prices and refreshes the Form upon clicking the CheckBox Basic Fridge
         If chkBasicFridge.Checked Then
             amenitiesPrice += basicFridgePrice
             fullPrice += basicFridgePrice
@@ -113,6 +122,7 @@
     End Sub
 
     Private Sub rdbGranite_CheckedChanged(sender As Object, e As EventArgs) Handles rdbGranite.CheckedChanged
+        'This updates the Prices and refreshes the Form upon clicking the Radio Button Granite
         If rdbGranite.Checked Then
             fullPrice += granitePrice
             lblTotalPrice.Text = fullPrice.ToString()
@@ -124,6 +134,7 @@
     End Sub
 
     Private Sub rdbWoodBlock_CheckedChanged(sender As Object, e As EventArgs) Handles rdbWoodBlock.CheckedChanged
+        'This updates the Prices and refreshes the Form upon clicking the Radio Button WoodBlock
         If rdbWoodBlock.Checked Then
             fullPrice += woodblockPrice
             lblTotalPrice.Text = fullPrice.ToString()
@@ -135,6 +146,7 @@
     End Sub
 
     Private Sub rdbLaminate_CheckedChanged(sender As Object, e As EventArgs) Handles rdbLaminate.CheckedChanged
+        'This updates the Prices and refreshes the Form upon clicking the Radio Button Laminate
         If rdbLaminate.Checked Then
             fullPrice += laminatePrice
             lblTotalPrice.Text = fullPrice.ToString()
@@ -147,17 +159,31 @@
 
     Private Sub btnConfirmOrder_Click(sender As Object, e As EventArgs) Handles btnConfirmOrder.Click
         If Not rdbLaminate.Checked Or rdbWoodBlock.Checked Or rdbGranite.Checked Then
+            'Confirm that the user has selected a Kitchen Counter top
             MessageBox.Show("Please input Countertop preference")
         ElseIf Not rdbYesInstallation.Checked Or rdbNoInstallation.Checked Then
+            'Confirm that the user has selected whether he/she wants Installation service
             MessageBox.Show("Please specify if you wish to have installation service")
         Else
-            'Code to Print to .txt file : User Details, Kitchen Layout style, kitchen countertop, 
+            'Fetch user info
+            houseNo = InputBox("Enter your house number", "Payment Details for " & DataClass.userInfo.Item1)
+
+            streetName = InputBox("Enter your Street Name", "Payment Details for " & DataClass.userInfo.Item1)
+
+            town_city = InputBox("Enter your Town/City", "Payment Details for " & DataClass.userInfo.Item1)
+
+            postCode = InputBox("Enter your Postal Code", "Payment Details for " & DataClass.userInfo.Item1)
+
+            creditCard = InputBox("Enter your Credit Card details", "Payment Details for " & DataClass.userInfo.Item1)
+
+            'Print to .txt file : User Details, Total price 
             Dim file As IO.StreamWriter
 
             file = My.Computer.FileSystem.OpenTextFileWriter("C:\Users\Dan Mwangi\source\repos\CustomKitchens\CustomKitchens\obj\Debug\KitchenReceipt.txt", True)
             file.WriteLine("--------------------------------" & vbCr & vbCr & "Customer Name : " & DataClass.userInfo.Item1 & vbCr & "Cost of purchase : " & fullPrice.ToString() & vbCr & vbCr & "--------------------------------")
             file.Close()
 
+            'Inform the user that he has completed the Order Process
             MessageBox.Show("Success! We have placed your Order.")
         End If
     End Sub
